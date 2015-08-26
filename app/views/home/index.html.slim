@@ -1,0 +1,73 @@
+/ .section-top
+/   .container
+/     .row
+/       .col-xs-12
+/         h1.title
+/           | Find Your
+/           strong Private Coach
+/           | Today
+
+/       .col-xs-12.col-md-6
+/         p.lead-in 110p.co is a booking platform that connects sports coaches/trainers with athletes and fitness enthusiasts.
+
+/     .row = render partial: 'short_search', locals: { form: @form }
+
+/   .wrapper
+/     .container = render partial: 'how_it_works'
+
+.bg-container 
+  .sessions.scroll-bg.active
+section#section-1
+  .container-fluid
+    .row
+      .section-body.col-xs-12.col-md-6.col-md-offset-6
+        = image_tag 'icon_s1.png', class: 'img-circle'
+        .col-xs-12.col-md-8
+          h1 Customized Sessions
+          p Customize your sessions based on your needs and skill level. Learn at the pace that you want or ask our coaches to give that extra push to get you to the next level!
+
+.bg-container 
+  .choices
+section#section-2
+  .container-fluid
+    .row
+      .section-body.col-xs-12.col-md-6.col-md-offset-6
+        = image_tag 'icon_s2.png', class: 'img-circle'
+        .col-xs-12.col-md-8
+          h1 Various Choices
+          p Browse through our wide selection of coaches across numerous sports categories. We will keep expanding our coaching team so that you can explore new interests wherever you are and whenever you want.
+
+.bg-container 
+  .info
+section#section-3
+  .container-fluid
+    .row
+      .section-body.col-xs-12.col-md-6.col-md-offset-6
+        = image_tag 'icon_s3.png', class: 'img-circle'
+        .col-xs-12.col-md-8
+          h1 Better Informed
+          p Our coach profiles include our coaches' backgrounds, accreditations, specializations, and coach/session reviews. We empower our coaches to show you how they can make you a better athlete. Get to know who you hire before you hire!
+
+.bg-container
+  .prices
+section#section-4
+  .container-fluid
+    .row
+      .section-body.col-xs-12.col-md-6.col-md-offset-6
+        = image_tag 'icon_s4.png', class: 'img-circle'
+        .col-xs-12.col-md-8
+          h1 Low Prices
+          p
+            | We do not charge commissions per booking. We want our coaches to charge the
+            em  right
+            | price so that both you and the coach can benefit.
+
+.section-search
+
+  .container
+
+    = simple_form_for @form, as: :query, url: coaches_path, method: :get do
+
+      .row = render partial: 'coaches/search', locals: { form: @form }
+
+

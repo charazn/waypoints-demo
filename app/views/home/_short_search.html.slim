@@ -1,0 +1,19 @@
+= simple_form_for @form, as: :query, url: coaches_path, method: :get do |f|
+
+  .container-fluid.search-form
+    .container
+      .row
+        .col-md-3
+          = f.label 'Sport'
+          = f.select :sport, Sport.all.order(:name).map(&:name), { include_blank: true }, { class: 'js-search-sport-select', style: 'width: 100%' }
+        .col-md-3
+          = f.label 'Location'
+          = f.select :based_in, Location.options, { include_blank: true }, {  class: 'js-search-location-select',  style: 'width: 100%' }
+
+        .col-md-3
+          = f.input :date, as: :date, placeholder: 'Today', class: 'form-control'
+
+        .col-md-3
+          .form-group
+            label.control-label &nbsp
+            = f.submit 'Search', class: 'btn btn-default form-control'
