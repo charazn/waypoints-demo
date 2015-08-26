@@ -1,73 +1,59 @@
 @import 'bootstrap';
-@import 'application/variables';
+@import 'variables';
 
-.static_pages.home {
+.home.index {
 
   > header .navbar-inverse { background-color: rgba(black, 0.4); }
 
   section { background-size: cover; }
 
-  .section-top {
+  // .section-top {
+  //   background: image-url('top.jpg') no-repeat center center;
+  //   z-index: -1;
+  //   background-size: cover;
+  //   margin-top: -96px;
+  //   padding: 120px 0 0;
+  //   .title {
+  //     margin-bottom: 32px;
+  //     font-family: "Arial Black";
+  //     font-size: 56px;
+  //     color: white;
+  //     text-shadow: 1px 1px rgba(#000, 0.6);
+  //     strong {
+  //       color: $red;
+  //       display: block;
+  //     }
+  //   }
 
-    background: image-url('top.jpg') no-repeat center center;
-    z-index: -1;
-    background-size: cover;
-    margin-top: -96px;
-    padding: 120px 0 0;
+  //   .lead-in {
+  //     font-size: 18px;
+  //     color: #fff;
+  //     margin-bottom: 32px;
+  //   }
 
-    .title {
+  //   .wrapper {
+  //     background-color: rgba(black, 0.4);
+  //     margin-top: 110px;
+  //   }
 
-      margin-bottom: 32px;
-
-      font-family: "Arial Black";
-      font-size: 56px;
-
-      color: white;
-
-      text-shadow: 1px 1px rgba(#000, 0.6);
-
-      strong {
-        color: $red;
-        display: block;
-      }
-
-    }
-
-    .lead-in {
-      font-size: 18px;
-      color: #fff;
-      margin-bottom: 32px;
-    }
-
-    .wrapper {
-      background-color: rgba(black, 0.4);
-      margin-top: 110px;
-    }
-
-    .how-it-works {
-
-      h3, p { color: white; }
-
-      .well {
-        background-color: transparent;
-        border: 0;
-        padding: 16px 16px 0;
-        box-shadow: none;
-        height: auto
-      }
-
-    }
-
-  }
+  //   .how-it-works {
+  //     h3, p { color: white; }
+  //     .well {
+  //       background-color: transparent;
+  //       border: 0;
+  //       padding: 16px 16px 0;
+  //       box-shadow: none;
+  //       height: auto
+  //     }
+  //   }
+  // }
 
   .section-body {
-
     background-color: rgba(black, 0.4);
     z-index:1;
     color: white;
     height: 100vh;
     padding: 160px 64px;
-
     position: relative;
 
     em {
@@ -81,42 +67,32 @@
     }
 
     @media (max-width: $screen-sm-max) {
-
       text-align: center;
       padding: 120px 64px;
-
       h1 { font-size: 40px; }
-
       img {
         margin-bottom: 32px;
         width: 120px;
         height: 120px;
       }
-
     }
 
     @media (min-width: $screen-md-min) {
-
       img {
-
         position: absolute;
         width: 80px;
         height: 80px;
         left: -40px;
-
         box-shadow: 0 0 4px rgba(black, 0.6);
-
       }
-      
     }
-
   }
 
   .bg-container {
     div {
       width: 100%;
       height: 100vh;
-      top:0;
+      top: 0;
       position: fixed;  
       opacity: 0;
       transition: opacity 0.6s ease-in-out; 
@@ -127,42 +103,43 @@
     }
 
     .scroll-bg {
-      top:auto;
+      top: auto;
       position: absolute;
+    }
+    .sessions { 
+      background: image-url('p1.jpg') no-repeat center center;
+      background-size: cover;
+      z-index: -2;
+      // position: absolute;
+    }
+    .choices { 
+      background: image-url('p2.jpg') no-repeat center center;
+      background-size: cover;
+      z-index: -3;
+      // position: absolute;
+    }
+    .info { 
+      background: image-url('p3.jpg') no-repeat center center;
+      background-size: cover;
+      z-index: -4;
+      // position: absolute;
+    }
+    .prices { 
+      background: image-url('p4.jpg') no-repeat center center;
+      background-size: cover;
+      z-index: -5;
+      // position: absolute;
     }
   }
 
-  .sessions { 
-    background: image-url('p1.jpg') no-repeat center center;
-    background-size: cover;
-    z-index: -2;
-  }
-  .choices { 
-    background: image-url('p2.jpg') no-repeat center center;
-    background-size: cover;
-    z-index: -3;
-  }
-  .info { 
-    background: image-url('p3.jpg') no-repeat center center;
-    background-size: cover;
-    z-index: -4;
-  }
-  .prices { 
-    background: image-url('p4.jpg') no-repeat center center;
-    background-size: cover;
-    z-index: -5;
-  }
 
   section {
     height: 100vh;
   }
 
   .section-search {
-
     padding: 120px 0;
-
     h1 { margin-bottom: 32px; }
-
   }
 
   #messages{

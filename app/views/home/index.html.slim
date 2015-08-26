@@ -21,7 +21,7 @@ section#section-1
   .container-fluid
     .row
       .section-body.col-xs-12.col-md-6.col-md-offset-6
-        = image_tag 'icon_s1.png', class: 'img-circle'
+        = image_tag 'icon_s1.png', class: 'img-circle', id: 'section1-img'
         .col-xs-12.col-md-8
           h1 Customized Sessions
           p Customize your sessions based on your needs and skill level. Learn at the pace that you want or ask our coaches to give that extra push to get you to the next level!
@@ -32,7 +32,7 @@ section#section-2
   .container-fluid
     .row
       .section-body.col-xs-12.col-md-6.col-md-offset-6
-        = image_tag 'icon_s2.png', class: 'img-circle'
+        = image_tag 'icon_s2.png', class: 'img-circle', id: 'section2-img'
         .col-xs-12.col-md-8
           h1 Various Choices
           p Browse through our wide selection of coaches across numerous sports categories. We will keep expanding our coaching team so that you can explore new interests wherever you are and whenever you want.
@@ -43,7 +43,7 @@ section#section-3
   .container-fluid
     .row
       .section-body.col-xs-12.col-md-6.col-md-offset-6
-        = image_tag 'icon_s3.png', class: 'img-circle'
+        = image_tag 'icon_s3.png', class: 'img-circle', id: 'section3-img'
         .col-xs-12.col-md-8
           h1 Better Informed
           p Our coach profiles include our coaches' backgrounds, accreditations, specializations, and coach/session reviews. We empower our coaches to show you how they can make you a better athlete. Get to know who you hire before you hire!
@@ -54,20 +54,66 @@ section#section-4
   .container-fluid
     .row
       .section-body.col-xs-12.col-md-6.col-md-offset-6
-        = image_tag 'icon_s4.png', class: 'img-circle'
+        = image_tag 'icon_s4.png', class: 'img-circle', id: 'section4-img'
         .col-xs-12.col-md-8
           h1 Low Prices
           p
             | We do not charge commissions per booking. We want our coaches to charge the
-            em  right
+            em  right 
             | price so that both you and the coach can benefit.
 
-.section-search
-
-  .container
-
-    = simple_form_for @form, as: :query, url: coaches_path, method: :get do
-
-      .row = render partial: 'coaches/search', locals: { form: @form }
+section
+  h1 End of page
 
 
+javascript:
+  var waypoint = new Waypoint({
+    element: document.getElementById('section1-img'),
+    handler: function(direction){
+      $('.sessions').toggleClass('scroll-bg', direction === 'up');
+    },
+    offset: '50%'
+  });
+
+  var waypoint = new Waypoint({
+    element: document.getElementById('section2-img'),
+    handler: function(direction) {
+      if (direction==='up') {
+        activateBackground('.sessions');
+      } else {
+        activateBackground('.choices');      
+      }
+    }, 
+    offset: '50%' 
+  });
+
+  var waypoint = new Waypoint({
+    element: document.getElementById('section3-img'),
+    handler: function(direction) {
+      if (direction==='up') {
+        activateBackground('.choices');
+      } else {
+        activateBackground('.info');     
+      }
+    }, 
+    offset: '50%' 
+  });
+
+  var waypoint = new Waypoint({
+    element: document.getElementById('section4-img'),
+    handler: function(direction) {
+      $('.prices').toggleClass('scroll-bg', direction === 'down');
+      if (direction==='up') {
+        activateBackground('.info');
+      } else {
+        activateBackground('.prices'); 
+      }
+    }, 
+    offset: '14%' 
+  });
+
+
+  function activateBackground(selector) {
+    $('.bg-container div').removeClass('active');
+    $(selector).addClass('active');
+  }

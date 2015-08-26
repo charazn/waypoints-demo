@@ -1,4 +1,4 @@
-= simple_form_for @form, as: :query, url: coaches_path, method: :get do |f|
+= form_tag method: :get
 
   .container-fluid.search-form
     .container
@@ -7,23 +7,23 @@
 
       .row
         .col-md-3
-          = f.label 'Sport'
-          = f.select :sport, Sport.all.order(:name).map(&:name), { include_blank: true }, { class: 'js-search-sport-select', style: 'width: 100%' }
+          = label_tag 'Sport'
+          = select_tag Sport.all.order(:name).map(&:name), { include_blank: true }, { class: 'js-search-sport-select', style: 'width: 100%' }
         .col-md-3
-          = f.label 'Location'
-          = f.select :based_in, Location.options, { include_blank: true }, {  class: 'js-search-location-select',  style: 'width: 100%' }
+          = label_tag 'Location'
+          = select_tag Location.options, { include_blank: true }, {  class: 'js-search-location-select',  style: 'width: 100%' }
 
         .col-md-3
-          = f.input :date, as: :date, placeholder: 'Today', class: 'form-control'
+          = input_tag as: :date, placeholder: 'Today', class: 'form-control'
 
         .col-md-3
           .form-group
             label.control-label &nbsp
-            = f.submit 'Search', class: 'btn btn-default form-control'
+            = submit_tag 'Search', class: 'btn btn-default form-control'
 
   - if @coaches.try(:any?)
 
     .container
       .sortby.row
         label.col-sm-1.col-xs-12 Sort By
-        = f.select :order, { rating: 'Rating', name: 'Name (A-Z)' }.invert, {}, { data: { reload: true } }
+        = select_tag :order, { rating: 'Rating', name: 'Name (A-Z)' }.invert, {}, { data: { reload: true } }
